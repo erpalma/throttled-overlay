@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+  <repo quality="experimental" status="unofficial">
+    <name><![CDATA[throttled-overlay]]></name>
+    <description lang="en"><![CDATA[Throttled Overlay]]></description>
+    <homepage>https://github.com/erpalma/throttled-overlay</homepage>
+    <owner type="person">
+      <email>palmarini@unive.it</email>
+      <name><![CDATA[Francesco Palmarini]]></name>
+    </owner>
+    <source type="git">git://github.com/erpalma/throttled-overlay.git</source>
+    <feed>http://github.com/erpalma/throttled-overlay/commits/master.atom</feed>
+  </repo>
+</repositories>
