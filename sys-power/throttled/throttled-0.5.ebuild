@@ -5,15 +5,12 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_5 python3_6 )
 
-inherit python-single-r1 linux-info systemd git-r3
+inherit python-single-r1 linux-info systemd
 
 DESCRIPTION="Fix Intel CPU Throttling on Linux"
 HOMEPAGE="https://github.com/erpalma/throttled"
 MY_P="v${PV}"
 SRC_URI="https://github.com/erpalma/${PN}/archive/${MY_P}.tar.gz"
-
-EGIT_REPO_URI="${HOMEPAGE}.git"
-EGIT_BRANCH="master"
 
 LICENSE="MIT"
 SLOT="0"
