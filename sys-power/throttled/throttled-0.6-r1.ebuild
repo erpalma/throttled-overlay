@@ -1,11 +1,11 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_5 python3_6 )
+PYTHON_COMPAT=( python3_{6,7} )
 
-inherit python-single-r1 linux-info systemd
+inherit python-r1 linux-info systemd
 
 DESCRIPTION="Fix Intel CPU Throttling on Linux"
 HOMEPAGE="https://github.com/erpalma/throttled"
@@ -18,17 +18,16 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-RDEPEND="${PYTHON_DEPS}
+DEPEND="${PYTHON_DEPS}"
+RDEPEND="${DEPEND}
 	dev-python/dbus-python[${PYTHON_USEDEP}]
 	dev-python/pygobject[${PYTHON_USEDEP}]
 "
-DEPEND="${PYTHON_DEPS}"
 
 CONFIG_CHECK="X86_MSR DEVMEM"
 
 pkg_setup() {
 	linux-info_pkg_setup
-	python-single-r1_pkg_setup
 }
 
 src_prepare() {
@@ -38,8 +37,8 @@ src_prepare() {
 
 src_install() {
 	default
-	python_domodule mmio.py
-	python_newscript lenovo_fix.py ${PN}
+	python_foreach_impl python_domodule mmio.py
+	python_foreach_impl python_newscript lenovo_fix.py ${PN}
 	dodoc README.md
 	insinto /etc/
 	doins etc/lenovo_fix.conf
