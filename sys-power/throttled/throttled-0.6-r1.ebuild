@@ -9,12 +9,19 @@ inherit python-r1 linux-info systemd
 
 DESCRIPTION="Fix Intel CPU Throttling on Linux"
 HOMEPAGE="https://github.com/erpalma/throttled"
-MY_P="v${PV}"
-SRC_URI="https://github.com/erpalma/${PN}/archive/${MY_P}.tar.gz"
+
+if [[ ${PV} == *9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="${HOMEPAGE}.git"
+	EGIT_BRANCH="master"
+else
+	MY_P="v${PV}"
+	SRC_URI="https://github.com/erpalma/${PN}/archive/${MY_P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
 IUSE=""
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
