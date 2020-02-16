@@ -19,8 +19,8 @@ IUSE=""
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
-	dev-python/dbus-python[${PYTHON_USEDEP}]
-	dev-python/pygobject[${PYTHON_USEDEP}]
+	dev-python/dbus-python[${PYTHON_SINGLE_USEDEP}]
+	dev-python/pygobject[${PYTHON_SINGLE_USEDEP}]
 "
 DEPEND="${PYTHON_DEPS}"
 
