@@ -2,7 +2,16 @@
 
 Gentoo Portage overlay for the [throttled](https://github.com/erpalma/throttled) tool.
 
-## local overlays
+## Adding the overlay
+
+### Via eselect (recommended)
+
+Since portage 2.2, [eselect repository](https://wiki.gentoo.org/wiki/Eselect/Repository) allows easy management of the Gentoo repositories. If you have it not yet installed, you can do so via `emerge --ask app-eselect/eselect-repository`.
+To add the repository just run:
+
+	eselect repository add throttled git https://github.com/erpalma/throttled-overlay.git
+
+### Manual configuration of local overlays
 
 [Local overlays](https://wiki.gentoo.org/wiki/Overlay/Local_overlay) should be managed via `/etc/portage/repos.conf/`.
 To enable this overlay make sure you are using a recent Portage version (at least `2.2.14`), and create a `/etc/portage/repos.conf/throttled-overlay.conf` file containing precisely:
@@ -15,9 +24,7 @@ sync-uri = https://github.com/erpalma/throttled-overlay.git
 priority = 9999
 ```
 
-Afterwards, simply run `emerge --sync`, and Portage should seamlessly make the ebuilds available.
-
-## layman
+### Via layman
 
 Invoke the following:
 
@@ -25,8 +32,13 @@ Invoke the following:
 	
 Or read the instructions on the [Gentoo Wiki](http://wiki.gentoo.org/wiki/Layman#Adding_custom_repositories).
 
+## Syncing
+
+You can sync all your repositories via `emaint sync -a` or  `emerge --sync`. After that, the ebuilds your be available.
+
 # Installation
 
-After performing those steps, the following should work:
+Depending on your setup, you might need to accept a keyword for this pacakge by adding it to `/etc/portage/package.accept_keywords`. See [Gentoo Wiki](https://wiki.gentoo.org/wiki/Knowledge_Base:Accepting_a_keyword_for_a_single_package).
+Then you can install it like this:
 
 	sudo emerge -av sys-power/throttled
