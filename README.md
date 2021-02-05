@@ -11,7 +11,7 @@ To add the repository just run:
 
 	eselect repository add throttled git https://github.com/erpalma/throttled-overlay.git
 
-### Manual configuration of local overlays
+### Via manual configuration of local overlays
 
 [Local overlays](https://wiki.gentoo.org/wiki/Overlay/Local_overlay) should be managed via `/etc/portage/repos.conf/`.
 To enable this overlay make sure you are using a recent Portage version (at least `2.2.14`), and create a `/etc/portage/repos.conf/throttled-overlay.conf` file containing precisely:
@@ -34,7 +34,7 @@ Or read the instructions on the [Gentoo Wiki](http://wiki.gentoo.org/wiki/Layman
 
 ## Syncing
 
-You can sync all your repositories via `emaint sync -a` or  `emerge --sync`. After that, the ebuilds your be available.
+You can sync all your repositories via `emaint sync -a` or  `emerge --sync`. After that, the ebuilds should be available for installation.
 
 # Installation
 
