@@ -17,7 +17,7 @@ if [[ ${PV} == *9999 ]]; then
 else
 	MY_P="v${PV}"
 	SRC_URI="https://github.com/erpalma/${PN}/archive/${MY_P}.tar.gz"
-	KEYWORDS="amd64 x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="MIT"
