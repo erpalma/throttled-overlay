@@ -44,7 +44,6 @@ src_install() {
 	python_foreach_impl python_newscript throttled.py ${PN}
 	dodoc README.md
 	insinto /etc/
-        mv /etc/lenovo_fix.conf /etc/throttled.conf
 	doins etc/throttled.conf
 	doinitd "${FILESDIR}"/"${PN}"
 	systemd_newunit "${S}/systemd/throttled.service" "${PN}".service
