@@ -35,16 +35,17 @@ CONFIG_CHECK="X86_MSR DEVMEM"
 
 src_prepare() {
 	default
-	sed -i -e "s/ExecStart=.*/ExecStart=${PN}/" systemd/lenovo_fix.service
+	sed -i -e "s/ExecStart=.*/ExecStart=${PN}/" systemd/throttled.service
 }
 
 src_install() {
 	default
 	python_foreach_impl python_domodule mmio.py
-	python_foreach_impl python_newscript lenovo_fix.py ${PN}
+	python_foreach_impl python_newscript throttled.py ${PN}
 	dodoc README.md
 	insinto /etc/
-	doins etc/lenovo_fix.conf
+        mv /etc/lenovo_fix.conf /etc/throttled.conf
+	doins etc/throttled.conf
 	doinitd "${FILESDIR}"/"${PN}"
-	systemd_newunit "${S}/systemd/lenovo_fix.service" "${PN}".service
+	systemd_newunit "${S}/systemd/throttled.service" "${PN}".service
 }
