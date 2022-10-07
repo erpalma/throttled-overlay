@@ -16,7 +16,7 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_BRANCH="master"
 else
 	MY_P="v${PV}"
-	SRC_URI="https://github.com/erpalma/${PN}/archive/${MY_P}.tar.gz"
+	SRC_URI="https://github.com/erpalma/${PN}/archive/${MY_P}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="amd64 x86"
 fi
 
