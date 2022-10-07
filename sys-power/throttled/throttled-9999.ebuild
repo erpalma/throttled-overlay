@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8,9,10} )
+PYTHON_COMPAT=( python3_{8,9,10,11} )
 
 inherit python-r1 linux-info systemd
 
@@ -16,7 +16,7 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_BRANCH="master"
 else
 	MY_P="v${PV}"
-	SRC_URI="https://github.com/erpalma/${PN}/archive/${MY_P}.tar.gz"
+	SRC_URI="https://github.com/erpalma/${PN}/archive/${MY_P}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
