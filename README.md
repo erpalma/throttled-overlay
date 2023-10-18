@@ -1,3 +1,5 @@
+# The ebuild is now in the official tree!
+
 # throttled-overlay
 
 Gentoo Portage overlay for the [throttled](https://github.com/erpalma/throttled) tool.
